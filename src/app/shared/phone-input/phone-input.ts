@@ -39,25 +39,26 @@ export class PhoneInputComponent implements ControlValueAccessor {
     { iso: 'NP', name: 'Nepal',         flag: '🇳🇵', code: '977' },
     { iso: 'US', name: 'United States', flag: '🇺🇸', code: '1'   },
     { iso: 'IN', name: 'India',         flag: '🇮🇳', code: '91'  },
-    { iso: 'CA', name: 'Canada',        flag: '🇨🇦', code: '1'   },
-    { iso: 'GB', name: 'United Kingdom', flag: '🇬🇧', code: '44'  },
-    { iso: 'AU', name: 'Australia',      flag: '🇦🇺', code: '61'  },
-    { iso: 'DE', name: 'Germany',        flag: '🇩🇪', code: '49'  },
-    { iso: 'FR', name: 'France',         flag: '🇫🇷', code: '33'  },
-    { iso: 'JP', name: 'Japan',          flag: '🇯🇵', code: '81'  },
-    { iso: 'BR', name: 'Brazil',         flag: '🇧🇷', code: '55'  },
-    { iso: 'ZA', name: 'South Africa',   flag: '🇿🇦', code: '27'  },
-    { iso: 'IT', name: 'Italy',          flag: '🇮🇹', code: '39'  },
-    { iso: 'ES', name: 'Spain',          flag: '🇪🇸', code: '34'  },
-    { iso: 'CN', name: 'China',          flag: '🇨🇳', code: '86'  },
-    { iso: 'MX', name: 'Mexico',         flag: '🇲🇽', code: '52'  },
-    { iso: 'KR', name: 'South Korea',    flag: '🇰🇷', code: '82'  },
-    { iso: 'SG', name: 'Singapore',      flag: '🇸🇬', code: '65'  },
+  { iso: 'CA', name: 'Canada',        flag: '🇨🇦', code: '1'   },
+  { iso: 'GB', name: 'United Kingdom', flag: '🇬🇧', code: '44'  },
+  { iso: 'AU', name: 'Australia',      flag: '🇦🇺', code: '61'  },
+  { iso: 'DE', name: 'Germany',        flag: '🇩🇪', code: '49'  },
+  { iso: 'FR', name: 'France',         flag: '🇫🇷', code: '33'  },
+  { iso: 'JP', name: 'Japan',          flag: '🇯🇵', code: '81'  },
+  { iso: 'BR', name: 'Brazil',         flag: '🇧🇷', code: '55'  },
+  { iso: 'ZA', name: 'South Africa',   flag: '🇿🇦', code: '27'  },
+  { iso: 'IT', name: 'Italy',          flag: '🇮🇹', code: '39'  },
+  { iso: 'ES', name: 'Spain',          flag: '🇪🇸', code: '34'  },
+  { iso: 'CN', name: 'China',          flag: '🇨🇳', code: '86'  },
+  { iso: 'MX', name: 'Mexico',         flag: '🇲🇽', code: '52'  },
+  { iso: 'KR', name: 'South Korea',    flag: '🇰🇷', code: '82'  },
+  { iso: 'SG', name: 'Singapore',      flag: '🇸🇬', code: '65'  },
 
   ];
 
   countryIso = 'NP';
   nationalNumber = '';
+  disabled = false;
 
 
   private onChange: (val: PhoneNumberValue | null) => void = () => {};
@@ -86,6 +87,9 @@ export class PhoneInputComponent implements ControlValueAccessor {
     this.touchedCb = fn;
   }
 
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
   onCountryChange(event: Event) {
     const selectEl = event.target as HTMLSelectElement;

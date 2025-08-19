@@ -1,8 +1,9 @@
 
-  <div class="phone-input" >
+  <div class="phone-input" [class.disabled]="disabled">
     <label class="sr-only" for="country">Country</label>
     <select id="country"
             class="country"
+            [disabled]="disabled"
             [value]="countryIso"
             (change)="onCountryChange($event)">
       <option *ngFor="let c of countries" [value]="c.iso">
@@ -18,6 +19,7 @@
         class="number"
         inputmode="numeric"
         autocomplete="tel"
+        [disabled]="disabled"
         [value]="nationalNumber"
         (input)="onNumberInput($event)"
         (blur)="markTouched()"
