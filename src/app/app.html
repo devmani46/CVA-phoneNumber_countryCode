@@ -1,12 +1,7 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <app-phone-input formControlName="phone"></app-phone-input>
 
-      <!-- <div class="hint">Try switching to Nepal — you’ll see +977 automatically.</div> -->
-
       <pre class="json">{{ form.value | json }}</pre>
 
       <button type="submit" [disabled]="form.invalid">Submit</button>
-      <!-- <button type="button" (click)="disable()"  *ngIf="!form.disabled">Disable</button>
-      <button type="button" (click)="enable()"   *ngIf=" form.disabled">Enable</button>
-      <button type="button" (click)="patchNepal()">Patch Nepal Example</button> -->
     </form>

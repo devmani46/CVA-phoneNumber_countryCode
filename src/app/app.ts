@@ -14,8 +14,8 @@ export class AppComponent {
   form = new FormGroup({
     phone: new FormControl<PhoneNumberValue | null>(
       {
-        countryIso: 'NP',
-        countryCode: '977',
+        countryIso: '',
+        countryCode: '',
         nationalNumber: '',
       },
       { validators: [this.requiredNationalNumber] }
@@ -32,12 +32,4 @@ export class AppComponent {
     alert('Check console for submitted value');
   }
 
-  // disable() { this.form.disable(); }
-  // enable()  { this.form.enable(); }
-
-  // patchNepal() {
-  //   this.form.patchValue({
-  //     phone: { countryIso: 'NP', countryCode: '977', nationalNumber: '9812345678' }
-  //   });
-  // }
 }
