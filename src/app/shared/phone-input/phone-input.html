@@ -1,0 +1,29 @@
+
+  <div class="phone-input" [class.disabled]="disabled">
+    <label class="sr-only" for="country">Country</label>
+    <select id="country"
+            class="country"
+            [disabled]="disabled"
+            [value]="countryIso"
+            (change)="onCountryChange($event)">
+      <option *ngFor="let c of countries" [value]="c.iso">
+        {{ c.flag }} {{ c.name }} (+{{ c.code }})
+      </option>
+    </select>
+
+    <div class="number-field">
+      <span class="prefix">+{{ countryCode }}</span>
+      <input
+        id="phone"
+        type="tel"
+        class="number"
+        inputmode="numeric"
+        autocomplete="tel"
+        [disabled]="disabled"
+        [value]="nationalNumber"
+        (input)="onNumberInput($event)"
+        (blur)="markTouched()"
+        placeholder="Phone number"
+      />
+    </div>
+  </div>

@@ -1,12 +1,43 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators, AbstractControl, ValidationErrors } from '@angular/forms';
+import { PhoneInputComponent, PhoneNumberValue } from './shared/phone-input/phone-input';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, PhoneInputComponent],
+  templateUrl:'./app.html',
+  styleUrl:'./app.scss',
 })
-export class App {
-  protected readonly title = signal('cva-phone');
+export class AppComponent {
+  form = new FormGroup({
+    phone: new FormControl<PhoneNumberValue | null>(
+      {
+        countryIso: 'NP',
+        countryCode: '977',
+        nationalNumber: '',
+      },
+      { validators: [this.requiredNationalNumber] }
+    )
+  });
+
+  requiredNationalNumber(control: AbstractControl): ValidationErrors | null {
+    const v = control.value as PhoneNumberValue | null;
+    return v && v.nationalNumber?.length ? null : { required: true };
+  }
+
+  submit() {
+    console.log('Submitted value:', this.form.value.phone);
+    alert('Check console for submitted value');
+  }
+
+  // disable() { this.form.disable(); }
+  // enable()  { this.form.enable(); }
+
+  // patchNepal() {
+  //   this.form.patchValue({
+  //     phone: { countryIso: 'NP', countryCode: '977', nationalNumber: '9812345678' }
+  //   });
+  // }
 }

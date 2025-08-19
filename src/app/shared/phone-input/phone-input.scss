@@ -1,0 +1,13 @@
+
+    .phone-input {
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) 2fr;
+      gap: 0.75rem;
+      align-items: center;
+    }
+    .phone-input.disabled { opacity: 0.6; pointer-events: none; }
+    .country { padding: .5rem; border: 1px solid #ccc; border-radius: .5rem; }
+    .number-field { display: grid; grid-template-columns: auto 1fr; border: 1px solid #ccc; border-radius: .5rem; }
+    .prefix { padding: .5rem; border-right: 1px solid #ccc; background: #f6f8fa; }
+    .number { padding: .5rem; border: 0; outline: 0; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
