@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 
 export interface PhoneNumberValue {
   countryIso: any;
-  countryCode: string;
+  countryCode: any;
   nationalNumber: string;
 }
 
