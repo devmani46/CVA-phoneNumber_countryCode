@@ -11,9 +11,9 @@ import {
 import { CommonModule } from '@angular/common';
 
 export interface PhoneNumberValue {
-  countryIso: any;
-  countryCode: any;
-  nationalNumber: any;
+  countryIso: string;
+  countryCode: string;
+  nationalNumber: string;
 }
 
 type Country = { iso: string; name: string; code: string; flag: string };
